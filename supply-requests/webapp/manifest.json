@@ -1,0 +1,115 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "pe.umadev.supplyrequests",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.15.6",
+      "toolsId": "4b05180e-e059-4f21-9113-a31a46201d1d"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "supplyrequest-manage": {
+          "semanticObject": "supplyrequest",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.130.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "pe.umadev.supplyrequests.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "pe.umadev.supplyrequests.view",
+        "async": true,
+        "viewPath": "pe.umadev.supplyrequests.view"
+      },
+      "routes": [
+        {
+          "name": "RoutePrincipal",
+          "pattern": ":?query:",
+          "target": [
+            "TargetPrincipal"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetPrincipal": {
+          "id": "Principal",
+          "name": "Principal"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "pe.umadev.supplyrequests.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "spa_supplying"
+  }
+}

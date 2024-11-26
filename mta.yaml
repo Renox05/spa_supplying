@@ -1,3 +1,92 @@
 _schema-version: "3.2"
 ID: spa_supplying
 version: 0.0.1
+modules:
+- name: spa_supplying-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: spa_supplying-destination-service
+    parameters:
+      content-target: true
+  - name: spa_supplying_html_repo_host
+    parameters:
+      service-key:
+        name: spa_supplying_html_repo_host-key
+  - name: uaa_spa_supplying
+    parameters:
+      service-key:
+        name: uaa_spa_supplying-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: spa_supplying_spa_supplying_html_repo_host
+          ServiceInstanceName: spa_supplying-html5-app-host-service
+          ServiceKeyName: spa_supplying_html_repo_host-key
+          sap.cloud.service: spa_supplying
+        - Authentication: OAuth2UserTokenExchange
+          Name: spa_supplying_uaa_spa_supplying
+          ServiceInstanceName: spa_supplying-xsuaa-service
+          ServiceKeyName: uaa_spa_supplying-key
+          sap.cloud.service: spa_supplying
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: spa_supplying-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: spa_supplying_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - peumadevsupplyrequests.zip
+      name: peumadevsupplyrequests
+      target-path: resources/
+- name: peumadevsupplyrequests
+  type: html5
+  path: supply-requests
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: spa_supplying-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: spa_supplying-destination-service
+    service-plan: lite
+- name: spa_supplying_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: spa_supplying-html5-app-host-service
+    service-plan: app-host
+- name: uaa_spa_supplying
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: spa_supplying-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo
