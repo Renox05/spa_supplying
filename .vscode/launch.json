@@ -16,7 +16,7 @@
             ],
             "args": [
                 "--open",
-                "test/flpSandbox.html#peumadevsupplyrequests-display"
+                "index.html"
             ],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
