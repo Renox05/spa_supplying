@@ -23,7 +23,7 @@
           "title": "{{flpTitle}}",
           "subTitle": "{{flpSubtitle}}",
           "icon": "sap-icon://approvals",
-          "shortTitle": "Pending Approbal",
+          "info": "Pending Approbal",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"

@@ -23,7 +23,7 @@
           "title": "{{flpTitle}}",
           "subTitle": "{{flpSubtitle}}",
           "icon": "sap-icon://create",
-          "shortTitle":"Created Request",
+          "info":"Created Request",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
