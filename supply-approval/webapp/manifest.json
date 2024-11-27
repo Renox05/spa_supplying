@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "pe.umadev.supplyrequests",
+    "id": "pe.umadev.supplyapproval",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,25 +13,24 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.15.6",
-      "toolsId": "4b05180e-e059-4f21-9113-a31a46201d1d"
+      "toolsId": "186c16db-7aec-42b2-8a03-5c30cfecc178"
     },
     "crossNavigation": {
       "inbounds": {
-        "supplyrequest-manage": {
-          "semanticObject": "supplyrequest",
+        "supplyapproval-manage": {
+          "semanticObject": "supplyapproval",
           "action": "manage",
           "title": "{{flpTitle}}",
           "subTitle": "{{flpSubtitle}}",
-          "icon": "sap-icon://create",
-          "shortTitle":"Created Request",
+          "icon": "sap-icon://approvals",
+          "shortTitle": "Pending Approbal",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
           }
         }
       }
-    },
-    "dataSources": {}
+    }
   },
   "sap.ui": {
     "technology": "UI5",
@@ -50,7 +49,6 @@
     }
   },
   "sap.ui5": {
-    "fullWidth": true,
     "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.130.2",
@@ -67,7 +65,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "pe.umadev.supplyrequests.i18n.i18n"
+          "bundleName": "pe.umadev.supplyapproval.i18n.i18n"
         }
       }
     },
@@ -86,10 +84,9 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "pe.umadev.supplyrequests.view",
+        "path": "pe.umadev.supplyapproval.view",
         "async": true,
-        "clearControlAggregation": false,
-        "viewPath": "pe.umadev.supplyrequests.view"
+        "viewPath": "pe.umadev.supplyapproval.view"
       },
       "routes": [
         {
@@ -102,6 +99,7 @@
       ],
       "targets": {
         "TargetPrincipal": {
+          "name": "Principal",
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
@@ -110,9 +108,8 @@
       }
     },
     "rootView": {
-      "viewName": "pe.umadev.supplyrequests.view.App",
+      "viewName": "pe.umadev.supplyapproval.view.App",
       "type": "XML",
-      "async": true,
       "id": "App"
     }
   },

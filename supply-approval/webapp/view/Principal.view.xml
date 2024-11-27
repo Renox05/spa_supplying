@@ -1,6 +1,6 @@
 <mvc:View
     xmlns:c="sap.ui.core"
-    controllerName="pe.umadev.supplyrequests.controller.Principal"
+    controllerName="pe.umadev.supplyapproval.controller.Principal"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:u="sap.ui.unified"
     xmlns="sap.m"

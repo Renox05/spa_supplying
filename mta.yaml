@@ -46,9 +46,23 @@ modules:
       - peumadevsupplyrequests.zip
       name: peumadevsupplyrequests
       target-path: resources/
+    - artifacts:
+      - peumadevsupplyapproval.zip
+      name: peumadevsupplyapproval
+      target-path: resources/
 - name: peumadevsupplyrequests
   type: html5
   path: supply-requests
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: peumadevsupplyapproval
+  type: html5
+  path: supply-approval
   build-parameters:
     build-result: dist
     builder: custom
