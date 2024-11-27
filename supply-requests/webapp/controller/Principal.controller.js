@@ -11,8 +11,7 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("pe.umadev.supplyrequests.controller.Principal", {
-        onInit: function () {
-            debugger;
+        onInit: function () { 
             var oJSONModel = this.initSampleDataModel();
             this.getView().setModel(oJSONModel);
         },

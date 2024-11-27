@@ -68,6 +68,7 @@
                         id="idButton1"
                         text="Edit"
                         type="Emphasized"
+                        press=".onInit"
                     />
                     <Button
                         id="idButton2"
@@ -101,8 +102,7 @@
                 >
                     <items>
                         <Panel
-                            id="idPanel"
-                            backgroundDesign="Transparent"
+                            id="idPanel" 
                             class="sapUiNoContentPadding"
                         >
                             <content>

@@ -7,9 +7,7 @@ sap.ui.define([
     return UIComponent.extend("pe.umadev.supplyrequests.Component", {
         metadata: {
             manifest: "json",
-            interfaces: [
-                "sap.ui.core.IAsyncContentCreation"
-            ]
+             
         },
 
         init() {

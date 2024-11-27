@@ -22,13 +22,15 @@
           "action": "manage",
           "title": "{{flpTitle}}",
           "subTitle": "{{flpSubtitle}}",
+          "icon": "sap-icon://customer-and-supplier",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
           }
         }
       }
-    }
+    },
+    "dataSources": {}
   },
   "sap.ui": {
     "technology": "UI5",
@@ -47,6 +49,7 @@
     }
   },
   "sap.ui5": {
+    "fullWidth": true,
     "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.130.2",
@@ -84,6 +87,7 @@
         "viewType": "XML",
         "path": "pe.umadev.supplyrequests.view",
         "async": true,
+        "clearControlAggregation": false,
         "viewPath": "pe.umadev.supplyrequests.view"
       },
       "routes": [
@@ -97,14 +101,17 @@
       ],
       "targets": {
         "TargetPrincipal": {
-          "id": "Principal",
-          "name": "Principal"
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Principal"
         }
       }
     },
     "rootView": {
       "viewName": "pe.umadev.supplyrequests.view.App",
       "type": "XML",
+      "async": true,
       "id": "App"
     }
   },

@@ -3,8 +3,8 @@ sap.ui.define([
 ], (Controller) => {
   "use strict";
 
-  return Controller.extend("pe.umadev.supplyrequests.controller.Principal", {
-      onInit() {
+  return Controller.extend("pe.umadev.supplyrequests.controller.App", {
+      onInit() { 
       }
   });
 });
