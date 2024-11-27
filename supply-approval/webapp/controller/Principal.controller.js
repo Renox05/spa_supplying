@@ -72,7 +72,7 @@ sap.ui.define([
             if (!this._pPopover) {
                 this._pPopover = Fragment.load({
                     id: oView.getId(),
-                    name: "sap.f.sample.DynamicPageAnalyticalTable.view.Card"
+                    name: "pe.umadev.supplyapproval.view.Card"
                 }).then(function (oPopover) {
                     oView.addDependent(oPopover);
                     return oPopover;
